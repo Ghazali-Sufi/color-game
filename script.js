@@ -27,6 +27,12 @@ document.querySelector(".score").textContent = score;
 
 let resultElement = document.querySelector(".result");
 
+// Function to reset the guess color
+function resetColor() {
+  randomColor = colors[Math.floor(Math.random() * colors.length)];
+  guessBox.style.backgroundColor = randomColor;
+}
+
 // Function to show the result
 function showResult(isCorrect) {
   if (isCorrect) {
@@ -84,7 +90,6 @@ function startGame() {
         }
       } else if (colorChosen === randomColor) {
         if (score === 20) {
-         
           winMusic.play();
           document.body.addEventListener("click", () => {
             playMusic.pause();
@@ -107,7 +112,6 @@ function startGame() {
             colorBtn[i].style.opacity = "0.5";
           }
         } else {
-          console.log("are we here!!!");
           showResult(true);
           colorBtn[i].querySelector("img").src = "win.gif";
           setTimeout(() => {
@@ -123,8 +127,7 @@ function startGame() {
             resultElement.textContent = "";
           }, 1000);
 
-          randomColor = colors[Math.floor(Math.random() * colors.length)];
-          guessBox.style.backgroundColor = randomColor;
+          resetColor();
         }
       }
     });
@@ -148,10 +151,7 @@ for (let i = 0; i < newGameBtn.length; i++) {
     }
     score = 0;
     document.querySelector(".score").textContent = score;
-    randomColor = colors[Math.floor(Math.random() * colors.length)];
-    guessBox.style.backgroundColor = randomColor;
+
+    resetColor();
   });
 }
-
-// reset guess color
-// result message
