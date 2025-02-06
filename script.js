@@ -1,4 +1,5 @@
 const playMusic = new Audio("music/loop.mp3");
+playMusic.preload = "auto";
 playMusic.loop = true;
 document.body.addEventListener("click", () => {
   playMusic.play();
@@ -31,12 +32,14 @@ function showResult(isCorrect) {
     resultElement.classList.add("correct"); // Add celebration animation
     resultElement.classList.remove("wrong"); // Remove fade-out animation if wrong
     const playMusic = new Audio("music/correct-2.wav");
+    playMusic.preload = 'auto'
     playMusic.play();
 
     score++;
     document.querySelector(".score").textContent = score;
   } else {
     const failMusic = new Audio("music/fail-1.wav");
+    failMusic.preload = 'auto'
     failMusic.play();
 
     document.body.addEventListener("click", () => {
@@ -79,6 +82,7 @@ function startGame() {
       } else if (colorChosen === randomColor) {
         if (score === 5) {
           const winMusic = new Audio("music/win.wav");
+          winMusic.preload = 'auto'
           winMusic.play();
           document.body.addEventListener("click", () => {
             playMusic.pause();
