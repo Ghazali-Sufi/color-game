@@ -144,6 +144,9 @@ p {
   background-color: #95b6e1;
 }
 
+.created-by{
+text-align: center;
+}
 
 
 /* Fade-out effect for wrong answers */
