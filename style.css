@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&family=Poppins:wght@200;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  background-color: #d1ebfe;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  padding-block: 20px;
+}
+.container h1,
+p {
+  text-align: center;
+  color: #0c356a;
+}
+.container p {
+  font-size: 24px;
+  font-weight: lighter;
+  margin-bottom: 15px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.flex button {
+  width: 150px;
+  height: 50px;
+  border: 1px solid #1d2f6f;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.flex .btn-new {
+  background-color: #0c356a;
+  color: white;
+  cursor: pointer;
+}
+.flex .btn-score {
+  color: #1d2f6f;
+}
+.flex .score {
+  background-color: #0c356a;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 40%;
+  padding: 10px;
+  color: #fff0ce;
+  transition: 1s ease;
+}
+.guess-box {
+  background-color: white;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.container .result {
+  text-align: center;
+  color: #0c356a;
+  margin-bottom: 30px;
+}
+.colors {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+.colors .color {
+  width: 130px;
+  height: 120px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.colors .color:hover {
+  opacity: 0.9;
+}
+
+.colors .color-1 {
+  background-color: #1d2f6f;
+}
+.colors .color-2 {
+  background-color: #fac748;
+}
+.colors .color-3 {
+  background-color: #8390fa;
+}
+.colors .color-4 {
+  background-color: #0081a7;
+}
+.colors .color-5 {
+  background-color: #00afb9;
+}
+.colors .color-6 {
+  background-color: #f88dad;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+
+  display: flex;
+  justify-content: center;  /* Horizontal centering */
+  align-items: center;
+}
+.hidden {
+  display: none;
+}
+.overlay button {
+  width: 200px;
+  height: 80px;
+  border: 1px solid #1d2f6f;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+
+  /* background-color: #0c356a; */
+  color: #1d2f6f;
+  cursor: pointer;
+  transition: 1s ease;
+}
+
+.overlay button:hover {
+  background-color: #95b6e1;
+}
+
+
+
+/* Fade-out effect for wrong answers */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Celebration effect for correct answers */
+@keyframes celebration {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes win-celebration {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Apply the animations to the result text */
+.result.wrong {
+  animation: fadeOut 3s forwards;
+  color: red;
+}
+
+.result.correct {
+  animation: celebration 1s ease-in-out;
+  color: green;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.result.win {
+  animation: win-celebration 1s ease-in-out;
+  color: green;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+@media (max-width: 393px) {
+  .container .result {
+    margin-bottom: 30px;
+  }
+  .flex button {
+    width: 110px;
+  }
+  .colors .color {
+    width: 100px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 445px) {
+  .container {
+    padding-block: 40px;
+  }
+  .container .result {
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
+  .container h1 {
+    font-size: 26px;
+  }
+  .flex button {
+    width: 130px;
+  }
+  .colors .color {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 360px) {
+  .colors .color {
+    width: 95px;
+    height: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-block: 40px;
+  }
+  .container .result {
+    margin-bottom: 50px;
+    font-size: 40px;
+  }
+  .container h1 {
+    font-size: 50px;
+  }
+  .container p {
+    font-size: 40px;
+  }
+  .flex button {
+    width: 150px;
+    height: 60px;
+  }
+  .flex .btn-score {
+    font-size: 18px;
+  }
+  .flex .score {
+    font-size: 18px;
+  }
+  .guess-box {
+    width: 250px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+  .colors .color {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .flex {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+  }
+  .flex button {
+    width: 150px;
+    height: 60px;
+  }
+  .flex .btn-score {
+    font-size: 18px;
+  }
+  .flex .score {
+    font-size: 18px;
+  }
+  .guess-box {
+    width: 250px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+  /* .guess-box h1{
+   font-size: 100px;
+  } */
+  .colors {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .colors .color {
+    width: 180px;
+    height: 155px;
+  }
+}
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Color Game</title>
+</head>
+<body>
+    <div class="container">
+        <h1 data-testid="gameInstructions">Guess the correct color!</h1>
+        <p>Reach 20 points to win!</p>
+        <div class="flex">
+            <button class="btn-score">Score <span class="score" data-testid="score"></span></button>
+            <button class="btn-new" data-testid="newGameButton">New Game</button>
+        </div>
+        <div class="guess-box" data-testid="colorBox">
+            <img src="" alt="">
+            <!-- <h1>?</h1> -->
+        </div>
+        <h2 class="result" data-testid="gameStatus"></h2>
+        <div class="colors" data-testid="colorOption">
+            <div class="color color-1"><img class="popper" src="" alt=""></div>
+            <div class="color color-2"><img class="popper" src="" alt=""></div>
+            <div class="color color-3"><img class="popper" src="" alt=""></div>
+            <div class="color color-4"><img class="popper" src="" alt=""></div>
+            <div class="color color-5"><img class="popper" src="" alt=""></div>
+            <div class="color color-6"><img class="popper" src="" alt=""></div>
+        </div>
+    </div>
+    <div class="overlay hidden">
+        <button class="btn-new">New Game</button>
+        <h2 class="result"></h2>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
