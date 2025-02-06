@@ -5,6 +5,9 @@ document.body.addEventListener("click", () => {
   playMusic.play();
 });
 
+let winMusic = new Audio("music/win.wav");
+winMusic.preload = "auto";
+
 const overlay = document.querySelector(".overlay");
 const colorBtn = document.querySelectorAll(".color");
 const colors = [
@@ -32,14 +35,14 @@ function showResult(isCorrect) {
     resultElement.classList.add("correct"); // Add celebration animation
     resultElement.classList.remove("wrong"); // Remove fade-out animation if wrong
     const playMusic = new Audio("music/correct-2.wav");
-    playMusic.preload = 'auto'
+    playMusic.preload = "auto";
     playMusic.play();
 
     score++;
     document.querySelector(".score").textContent = score;
   } else {
     const failMusic = new Audio("music/fail-1.wav");
-    failMusic.preload = 'auto'
+    failMusic.preload = "auto";
     failMusic.play();
 
     document.body.addEventListener("click", () => {
@@ -80,9 +83,8 @@ function startGame() {
           colorBtn[i].style.opacity = "0.5";
         }
       } else if (colorChosen === randomColor) {
-        if (score === 5) {
-          const winMusic = new Audio("music/win.wav");
-          winMusic.preload = 'auto'
+        if (score === 20) {
+         
           winMusic.play();
           document.body.addEventListener("click", () => {
             playMusic.pause();
@@ -132,7 +134,10 @@ const newGameBtn = document.querySelectorAll(".btn-new");
 
 for (let i = 0; i < newGameBtn.length; i++) {
   newGameBtn[i].addEventListener("click", () => {
-    console.log("inside new button", resultElement);
+    const guessBox = document.querySelector(".guess-box");
+    guessBox.querySelector("img").src = "";
+    resultElement.textContent = "";
+    winMusic.pause();
     document.body.addEventListener("click", () => {
       playMusic.pause();
     });
