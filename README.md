@@ -5,8 +5,8 @@
 1. Random Color Display: A random color appears in the center box.
 2. Your Task: Click on one of the six colored tiles you think matches the displayed color.
 3. Scoring:
-  - If you pick correctly, you earn 1 point.
-  - If you pick incorrectly, the game ends, and you lose.
+    - If you pick correctly, you earn 1 point.
+    - If you pick incorrectly, the game ends, and you lose.
 4. Win Condition: When your score reaches 20 points, you win the game!
 
 # Getting Started
